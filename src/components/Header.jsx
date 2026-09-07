@@ -94,8 +94,8 @@ function SearchBox({ compact = false }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => hints.length && setOpen(true)}
-          placeholder="Search Amazon"
-          aria-label="Search Amazon"
+          placeholder="Search NimbusMart"
+          aria-label="Search NimbusMart"
           autoComplete="off"
           className="min-w-0 flex-1 px-3 text-[15px] text-ink placeholder:text-muted focus:outline-none"
         />
@@ -141,8 +141,8 @@ function DesktopHeader({ user, logout, count, openMenu }) {
     <>
       <div className="bg-navy px-3">
         <div className="flex h-[60px] items-center gap-1.5">
-          <Link to="/" className={`${navBtn} flex items-center py-2`} aria-label="Amazon Clone home">
-            <img src={logo} alt="amazon" className="h-7 w-auto" />
+          <Link to="/" className={`${navBtn} flex items-center py-2`} aria-label="NimbusMart home">
+            <img src={logo} alt="NimbusMart" className="h-7 w-auto" />
           </Link>
           <Link to="/account" className={`${navBtn} hidden items-end gap-0.5 md:flex`}>
             <MapPin size={18} className="mb-0.5" />
@@ -196,8 +196,8 @@ function PhoneHeader({ user, count, openMenu }) {
           <button type="button" onClick={openMenu} className={`${navBtn} -ml-1 px-1`} aria-label="Open all departments menu">
             <Menu size={26} />
           </button>
-          <Link to="/" className={`${navBtn} flex items-center px-1`} aria-label="Amazon Clone home">
-            <img src={logo} alt="amazon" className="h-6 w-auto" />
+          <Link to="/" className={`${navBtn} flex items-center px-1`} aria-label="NimbusMart home">
+            <img src={logo} alt="NimbusMart" className="h-6 w-auto" />
           </Link>
           <div className="ml-auto flex items-center">
             <Link to={user ? "/account" : "/signin"} className={`${navBtn} flex items-center gap-1 text-sm`}>

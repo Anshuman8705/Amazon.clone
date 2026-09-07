@@ -62,7 +62,7 @@ describe("storefront against a live API", () => {
   it("searches from the header", async () => {
     const user = userEvent.setup();
     renderAt("/");
-    await user.type(screen.getByRole("searchbox", { name: /search amazon/i }), "kettlebell{Enter}");
+    await user.type(screen.getByRole("searchbox", { name: /search nimbusmart/i }), "kettlebell{Enter}");
     await waitFor(() => expect(cards()).toHaveLength(1));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent('Results for "kettlebell"');
   });
@@ -242,7 +242,7 @@ describe("account, wishlist and admin screens", () => {
     await waitFor(() => expect(screen.getByText(/browser added kettle/i)).toBeInTheDocument());
 
     // Visible to shoppers
-    await user.type(screen.getByRole("searchbox", { name: /search amazon/i }), "Browser Added{Enter}");
+    await user.type(screen.getByRole("searchbox", { name: /search nimbusmart/i }), "Browser Added{Enter}");
     await waitFor(() => expect(cards()).toHaveLength(1));
     expect(screen.getByText(/30% off/)).toBeInTheDocument();
   });

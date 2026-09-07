@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const logo = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/logo.png`;
 
 const columns = [
-  { head: "Get to know us", links: ["Careers", "Blog", "About Amazon", "Investor relations"] },
-  { head: "Make money with us", links: ["Sell on Amazon", "Become an affiliate", "Advertise your products", "Self-publish with us"] },
+  { head: "Get to know us", links: ["Careers", "Blog", "About NimbusMart", "Investor relations"] },
+  { head: "Make money with us", links: ["Sell on NimbusMart", "Become an affiliate", "Advertise your products", "Self-publish with us"] },
   { head: "Payment products", links: ["Business card", "Shop with points", "Reload your balance", "Currency converter"] },
   { head: "Let us help you", links: ["Your account", "Your orders", "Shipping rates", "Returns and replacements"] },
 ];
@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-slate-hi bg-slate px-6 py-5">
         <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-center gap-x-6 gap-y-3">
-          <img src={logo} alt="amazon" className="h-6 w-auto" />
+          <img src={logo} alt="NimbusMart" className="h-6 w-auto" />
           <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">English</span>
           <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">$ USD</span>
           <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">India</span>
@@ -50,10 +50,10 @@ export default function Footer() {
           <Link to="/products" className="hover:underline">Conditions of use</Link>
           <Link to="/products" className="hover:underline">Privacy notice</Link>
           <Link to="/account" className="hover:underline">Your account</Link>
-          <a href="https://github.com/Anshuman8705/amazon-clone" className="hover:underline" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+          <a href="https://github.com/Anshuman8705/Amazon.clone" className="hover:underline" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
         </div>
         <p className="text-xs text-gray-400">
-          Student project for a web technology course. Not affiliated with Amazon.com, Inc. No real orders are placed.
+          NimbusMart is a student project for a web technology course, not a real shop. It is not affiliated with any retailer. No payment is ever taken.
         </p>
         <p className="mt-1 text-xs text-gray-400">Designed and built by Anshuman Agrawal</p>
       </div>

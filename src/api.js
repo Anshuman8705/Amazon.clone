@@ -2,7 +2,7 @@
 // goes through here so error handling and auth headers live in one spot.
 
 const BASE = import.meta.env.VITE_API_BASE || "";
-const TOKEN_KEY = "amazon-clone:token";
+const TOKEN_KEY = "nimbusmart:token";
 
 export class ApiError extends Error {
   constructor(status, message, fields) {

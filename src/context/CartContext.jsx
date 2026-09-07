@@ -4,8 +4,8 @@ import { load, save } from "../utils/storage.js";
 import { useUser } from "./UserContext.jsx";
 
 export const MAX_QTY = 10;
-const STORAGE_KEY = "amazon-clone:cart";
-const GUEST_ORDERS_KEY = "amazon-clone:guest-orders";
+const STORAGE_KEY = "nimbusmart:cart";
+const GUEST_ORDERS_KEY = "nimbusmart:guest-orders";
 
 // Cart lines are {id, qty}. Product details are fetched from the API and
 // cached in `catalog` so prices and stock are always the server's numbers.

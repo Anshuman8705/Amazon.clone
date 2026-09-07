@@ -110,7 +110,7 @@ export default function ProductPage() {
 
           <div className="mt-4 space-y-2 text-xs text-muted">
             <p className="flex items-center gap-2"><Lock size={14} /> Secure transaction</p>
-            <p className="flex items-center gap-2"><Truck size={14} /> Ships from Amazon</p>
+            <p className="flex items-center gap-2"><Truck size={14} /> Ships from NimbusMart</p>
             <p className="flex items-center gap-2"><RotateCcw size={14} /> Returnable within 30 days</p>
           </div>
         </aside>
