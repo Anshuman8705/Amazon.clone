@@ -1,23 +1,16 @@
-# One-click deploy on Render (https://render.com). Connect the GitHub repo,
-# choose "Blueprint", and it reads this file. The free tier is enough.
-services:
-  - type: web
-    name: amazon-clone
-    runtime: node
-    buildCommand: npm ci && npm run build
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: JWT_SECRET
-        generateValue: true
-      - key: DB_PATH
-        value: /var/data/store.db
-      - key: ADMIN_EMAIL
-        value: admin@example.com
-      - key: ADMIN_PASSWORD
-        generateValue: true
-    disk:
-      name: data
-      mountPath: /var/data
-      sizeGB: 1
+# Exported from Render on 2026-09-07T17:31:30Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: Amazon.clone
+      runtime: node
+      repo: https://github.com/Anshuman8705/Amazon.clone
+      plan: free
+      region: ohio
+      buildCommand: npm install; npm run build
+      startCommand: npm run start
+      autoDeployTrigger: commit
