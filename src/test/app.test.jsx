@@ -145,8 +145,10 @@ describe("storefront against a live API", () => {
     await user.type(screen.getByLabelText(/^review$/i), "The slate insert cracked in the first week of use.");
     await user.click(screen.getByRole("button", { name: /submit review/i }));
     await waitFor(() => expect(screen.getByText(/review saved/i)).toBeInTheDocument());
-    expect(within(screen.getByTestId("review-list")).getByText(/split in half/i)).toBeInTheDocument();
-    expect(screen.getByTestId("review-count").textContent).not.toBe(countBefore);
+    // The list and the count refresh with their own requests after the save
+    // lands, so on a slow runner they can trail the status line by a moment.
+    await waitFor(() => expect(within(screen.getByTestId("review-list")).getByText(/split in half/i)).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId("review-count").textContent).not.toBe(countBefore));
 
     await user.click(within(header).getByRole("button", { name: /account & lists/i }));
     await user.click(within(header).getByRole("menuitem", { name: /sign out/i }));

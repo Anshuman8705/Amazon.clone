@@ -41,7 +41,7 @@
     "supertest": "^7.0.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19"
   },
   "author": "Anshuman Agrawal",
   "license": "MIT"

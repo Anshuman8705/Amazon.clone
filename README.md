@@ -10,7 +10,7 @@ Designed and built by Anshuman Agrawal. Not affiliated with Amazon.com, Inc.
 
 ## Running it
 
-You need Node.js 18 or newer (20 recommended, see `.nvmrc`). Then:
+You need Node.js 22 (`.nvmrc` pins it; 20.19 or newer also works). Then:
 
 ```bash
 npm install
@@ -116,9 +116,15 @@ Validation failures come back as `400 {error, fields: {fieldName: message}}`, st
 
 ## Deploying
 
-The back end needs a Node host, so GitHub Pages is not enough on its own. The simplest route is Render's free tier: push to GitHub, create a new Blueprint on Render and point it at the repository, and it reads `render.yaml`, which sets the build and start commands, generates a JWT secret and mounts a small disk so the SQLite file persists between deploys. Railway and Fly work the same way with `npm ci && npm run build` as the build step and `npm start` as the start command.
+The React app is static, but the API is an Express process with a SQLite file, so the two have different hosting needs. **Vercel, Netlify and GitHub Pages only host the front end.** Deploy the React app there on its own and every page will load but show "Cannot reach the server", because there is no API behind `/api`. There are two working setups.
 
-The CI workflow in `.github/workflows/ci.yml` runs the tests and a build on every push and pull request.
+**Everything on Render (simplest).** Push to GitHub, create a new Blueprint on Render and point it at the repository. It reads `render.yaml`, which sets `npm ci && npm run build` and `npm start`, generates a JWT secret and an admin password (find it under the service's Environment tab), and mounts a small disk so the SQLite file survives deploys. One process then serves the API and the built app at one address. The free tier sleeps after fifteen minutes idle, so the first request after a pause takes thirty seconds or so.
+
+**Front end on Vercel, API on Render.** Deploy the API on Render as above, then in the Vercel project add an environment variable `VITE_API_BASE` set to the Render address (for example `https://amazon-clone.onrender.com`, no trailing slash) and redeploy. The build bakes that address into the app, `server/app.js` already allows cross-origin requests, and `vercel.json` rewrites deep links such as `/product/3` to the app so a refresh does not 404. Railway and Fly work the same way as Render, with `npm ci && npm run build` as the build step and `npm start` to run.
+
+Set a real `ADMIN_PASSWORD` on whichever host runs the API before sharing the link.
+
+The CI workflow in `.github/workflows/ci.yml` runs the tests and a build on every push and pull request, on the Node version pinned in `.nvmrc`.
 
 ## History
 
