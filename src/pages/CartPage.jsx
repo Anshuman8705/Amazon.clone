@@ -12,7 +12,7 @@ export default function CartPage() {
 
   if (!items.length) {
     return (
-      <main className="mx-auto max-w-site px-3 py-4">
+      <main className="mx-auto max-w-site px-3 py-4 md:px-4">
         <div className="bg-white p-10 text-center">
           <ShoppingCart size={48} className="mx-auto text-muted" />
           <h1 className="mt-4 text-2xl font-bold text-ink">Your cart is empty</h1>
@@ -24,7 +24,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="mx-auto max-w-site px-3 py-4">
+    <main className="mx-auto max-w-site px-3 py-4 md:px-4">
       <div className="grid gap-4 lg:grid-cols-[1fr_300px]">
         <section className="bg-white p-5" aria-labelledby="cart-heading">
           <div className="flex items-baseline justify-between">

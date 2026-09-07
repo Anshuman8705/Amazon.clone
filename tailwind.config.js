@@ -24,7 +24,7 @@ export default {
         sans: ["Amazon Ember", "Arial", "Helvetica", "sans-serif"],
       },
       maxWidth: {
-        site: "1500px",
+        site: "1600px",
       },
     },
   },

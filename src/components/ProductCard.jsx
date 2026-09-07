@@ -13,7 +13,7 @@ export default function ProductCard({ product }) {
     <article className="flex h-full flex-col" data-testid="product-card">
       <div className="relative">
         <Link to={`/product/${product.id}`} className="block rounded">
-          <ProductImage product={product} />
+          <ProductImage product={product} className="bg-gray-50" />
         </Link>
         <WishlistButton product={product} className="absolute right-2 top-2" />
       </div>
@@ -22,7 +22,7 @@ export default function ProductCard({ product }) {
           {product.discount}% off
         </span>
       ) : null}
-      <Link to={`/product/${product.id}`} className="mt-1 line-clamp-2 text-sm text-link hover:underline">
+      <Link to={`/product/${product.id}`} className="mt-1 line-clamp-2 text-[15px] leading-snug text-ink hover:text-link hover:underline">
         {product.title}
       </Link>
       <div className="mt-1 flex items-center gap-1">

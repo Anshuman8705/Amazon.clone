@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ChevronLeft, MapPin, Lock, Truck, RotateCcw } from "lucide-react";
+import { ChevronRight, MapPin, Lock, Truck, RotateCcw } from "lucide-react";
 import Stars from "../components/Stars.jsx";
 import Price from "../components/Price.jsx";
 import Button from "../components/Button.jsx";
@@ -28,10 +28,10 @@ export default function ProductPage() {
   useEffect(() => { setQty(1); }, [id]);
 
   if (error?.status === 404) return <NotFoundPage message="That product does not exist or has been removed." />;
-  if (error) return <main className="mx-auto max-w-site px-3 py-4"><ErrorBox error={error} onRetry={reload} /></main>;
+  if (error) return <main className="mx-auto max-w-site px-3 py-4 md:px-4"><ErrorBox error={error} onRetry={reload} /></main>;
   if (loading || !product) {
     return (
-      <main className="mx-auto max-w-site px-3 py-4" aria-busy="true">
+      <main className="mx-auto max-w-site px-3 py-4 md:px-4" aria-busy="true">
         <div className="grid gap-6 bg-white p-5 lg:grid-cols-[minmax(0,460px)_1fr_300px] animate-pulse">
           <div className="aspect-[4/3] rounded bg-gray-100" />
           <div className="space-y-3"><div className="h-7 w-3/4 rounded bg-gray-100" /><div className="h-4 w-1/3 rounded bg-gray-100" /><div className="h-4 w-full rounded bg-gray-100" /></div>
@@ -47,17 +47,21 @@ export default function ProductPage() {
   const others = (related || []).filter((p) => p.id !== product.id).slice(0, 4);
 
   return (
-    <main className="mx-auto max-w-site px-3 py-4">
-      <Link to={`/category/${product.category}`} className="mb-3 flex w-fit items-center gap-1 text-sm text-link hover:underline">
-        <ChevronLeft size={14} /> Back to {category?.name}
-      </Link>
+    <main className="mx-auto max-w-site px-3 py-4 md:px-4">
+      <nav className="mb-3 flex flex-wrap items-center gap-1 text-xs text-muted" aria-label="Breadcrumb">
+        <Link to="/products" className="hover:text-link hover:underline">All products</Link>
+        <ChevronRight size={12} />
+        <Link to={`/category/${product.category}`} className="hover:text-link hover:underline">{category?.name}</Link>
+        <ChevronRight size={12} />
+        <span className="truncate text-ink">{product.brand}</span>
+      </nav>
 
-      <div className="grid gap-6 bg-white p-5 lg:grid-cols-[minmax(0,460px)_1fr_300px]">
-        <div>
+      <div className="grid gap-5 bg-white p-4 sm:p-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_290px] lg:grid-rows-[auto_1fr] lg:gap-x-8">
+        <div className="lg:row-span-2">
           <ProductImage product={product} fit="contain" className="border border-line" />
         </div>
 
-        <div>
+        <div className="lg:col-start-2">
           <div className="flex items-start justify-between gap-3">
             <h1 className="text-2xl leading-snug text-ink">{product.title}</h1>
             <WishlistButton product={product} className="mt-1 shrink-0" />
@@ -76,14 +80,9 @@ export default function ProductPage() {
             <Price value={product.price} was={product.was} size="lg" />
           </div>
           <p className="mt-1 text-xs text-muted">Demo store. Orders are recorded but no card is charged.</p>
-
-          <h2 className="mt-5 font-bold text-ink">About this item</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink">
-            {product.bullets.map((b) => <li key={b}>{b}</li>)}
-          </ul>
         </div>
 
-        <aside className="h-fit rounded-lg border border-line p-4">
+        <aside className="h-fit rounded-lg border border-line p-4 lg:col-start-3 lg:row-span-2">
           <Price value={product.price} size="lg" />
           {product.prime ? (
             <p className="mt-2 text-sm text-ink"><span className="font-bold">Free delivery</span> {deliveryDate()}</p>
@@ -115,6 +114,13 @@ export default function ProductPage() {
             <p className="flex items-center gap-2"><RotateCcw size={14} /> Returnable within 30 days</p>
           </div>
         </aside>
+
+        <div className="lg:col-start-2">
+          <h2 className="font-bold text-ink">About this item</h2>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink">
+            {product.bullets.map((b) => <li key={b}>{b}</li>)}
+          </ul>
+        </div>
       </div>
 
       <Reviews productId={product.id} onSaved={(updated) => setProduct(updated)} />
@@ -122,7 +128,7 @@ export default function ProductPage() {
       {others.length ? (
         <section className="mt-4 bg-white p-5" aria-labelledby="related-heading">
           <h2 id="related-heading" className="mb-3 text-xl font-bold text-ink">More in {category?.name}</h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-4 sm:gap-4">
             {others.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>
         </section>

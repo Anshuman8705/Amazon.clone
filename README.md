@@ -35,7 +35,7 @@ An administrator account is created the first time the API starts. Sign in with 
 
 ## What it does
 
-Browsing works as you'd expect from Amazon. The home page has a hero, eight category tiles and a row of the biggest discounts. Every category, the deals link and the search box lead to a listing page whose filtering (department, price band, minimum rating, free delivery), sorting and search all happen on the server through query parameters, with skeleton loaders while results change. A product page shows live stock, a quantity selector capped at what's available, related items, and the reviews that customers have written.
+Browsing works as you'd expect from Amazon. The home page has a three-slide hero with arrows (swipe on a phone), eight category tiles overlapping it, and three scrolling shelves: the biggest discounts, best sellers and everything under $25. The "All" button in the department bar opens the side menu with departments, programmes and account links. On a phone the header is a different component tree rather than the desktop one squeezed down: logo row with sign-in and cart, full-width search, a "Deliver to" strip and scrolling department chips, and listing pages get a Filters button that opens a bottom sheet. Every category, the deals link and the search box lead to a listing page whose filtering (department, price band, minimum rating, free delivery), sorting and search all happen on the server through query parameters, with skeleton loaders while results change. A product page shows live stock, a quantity selector capped at what's available, related items, and the reviews that customers have written.
 
 Accounts are real. Registration hashes the password with bcrypt and returns a JWT; signing in on another device shows the same cart and the same order history. You can shop as a guest too, and if you sign in with items in your cart they merge into the account cart. The cart is stored server-side for signed-in users and in the browser for guests.
 
@@ -64,13 +64,14 @@ src/
   api.js              the one place the front end calls fetch
   hooks/useFetch.js   loading, error and reload state for GET requests
   context/            CartContext (server sync, merge on sign-in), UserContext (JWT session), WishlistContext
-  components/         Header, Footer, ProductCard, FilterSidebar, Reviews, ...
+  components/         Header (desktop and phone trees), SideMenu, HeroCarousel, ProductCarousel, ProductCard, FilterSidebar, Reviews, ...
+  hooks/useMediaQuery.js  matchMedia hook behind the phone layouts (reports false in jsdom, so tests see the desktop tree)
   pages/              one file per route; pages/admin holds the management screens
   utils/              validation (shared with the server), formatting, storage
   data/products.js    seed catalogue and category list (the server loads this into SQLite)
   test/               Vitest specs; globalSetup starts a real API for the browser-flow tests
-public/images/        product photos and banners; three products use illustrations from scripts/make-product-art.py
-scripts/              spa-fallback.mjs (404.html for static hosts), make-product-art.py (product illustrations)
+public/images/        product photos, plus banners and three product illustrations rendered by the scripts below
+scripts/              spa-fallback.mjs (404.html for static hosts), make-banners.py (hero slides and promo strip), make-product-art.py (product illustrations)
 docs/                 screenshots used in this README
 ```
 
@@ -121,8 +122,8 @@ The CI workflow in `.github/workflows/ci.yml` runs the tests and a build on ever
 
 ## History
 
-Version 1 was sixteen static HTML files with a JavaScript error on the landing page, hot-linked images that had started to expire, and a payment form posting to a URL that did not exist. Version 2 rebuilt it in React with a single data file. Version 3 added the Express and SQLite back end with accounts, server-side carts, transactional orders, reviews and server-side search. Version 4 completed the store: account management, address book, wishlist, order statuses and cancellation, search suggestions, and the full admin area for products, orders and customers. The current release is a polish pass: every product now has an image (three are rendered illustrations), the product page shows the whole item instead of a crop and no longer fakes colour variants, the second home banner is cropped to its content, the checkout notice says what actually happens to the order, and the admin table stops wrapping ratings.
+Version 1 was sixteen static HTML files with a JavaScript error on the landing page, hot-linked images that had started to expire, and a payment form posting to a URL that did not exist. Version 2 rebuilt it in React with a single data file. Version 3 added the Express and SQLite back end with accounts, server-side carts, transactional orders, reviews and server-side search. Version 4 completed the store: account management, address book, wishlist, order statuses and cancellation, search suggestions, and the full admin area for products, orders and customers. Version 5 is the visual pass: an Amazon-style hero carousel and product shelves, the side menu, a dedicated phone header and filter sheet, full-width listing pages, pill buttons, a breadcrumb and a proper buy-box layout on the product page, and an Amazon-style footer. Every banner is now original artwork generated by `scripts/make-banners.py`, so the repository carries no third-party marketing images; every product has an image; the checkout notice says what actually happens to the order.
 
 ## Licence
 
-MIT, see `LICENSE`. The Amazon name and logo are trademarks of Amazon.com, Inc. and are used here only to identify what this student project imitates.
+MIT, see `LICENSE`. The Amazon name and logo are trademarks of Amazon.com, Inc. and are used here only to identify what this student project imitates. The hero slides, promo strip and three product illustrations are original and generated by the scripts in `scripts/`; the remaining product photographs came with the original coursework and are included for demonstration only.

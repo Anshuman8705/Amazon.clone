@@ -42,7 +42,7 @@ async function fillCheckout(user, overrides = {}) {
 describe("storefront against a live API", () => {
   it("renders the home page from the API with the cart empty", async () => {
     renderAt("/");
-    expect(screen.getByRole("heading", { level: 1, name: /black friday/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: /today's deals/i })).toBeInTheDocument();
     expect(screen.getByTestId("cart-count")).toHaveTextContent("0");
     await waitFor(() => expect(screen.getAllByTitle(PRODUCTS[0].title).length).toBeGreaterThan(0));
   });

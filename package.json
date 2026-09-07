@@ -1,7 +1,7 @@
 {
   "name": "amazon-clone",
   "private": true,
-  "version": "4.1.0",
+  "version": "5.0.0",
   "type": "module",
   "description": "Amazon storefront clone: React + Vite front end, Express + SQLite API, for a web technology course.",
   "scripts": {

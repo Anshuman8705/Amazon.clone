@@ -16,7 +16,7 @@ export default function AdminLayout() {
   }
   const link = ({ isActive }) => `flex items-center gap-2 rounded px-3 py-2 text-sm ${isActive ? "bg-slate text-white" : "text-ink hover:bg-gray-100"}`;
   return (
-    <main className="mx-auto max-w-site px-3 py-4">
+    <main className="mx-auto max-w-site px-3 py-4 md:px-4">
       <div className="grid gap-4 lg:grid-cols-[220px_1fr]">
         <nav className="h-fit bg-white p-2" aria-label="Admin">
           <NavLink to="/admin" end className={link}><LayoutDashboard size={16} /> Dashboard</NavLink>

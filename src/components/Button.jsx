@@ -4,11 +4,12 @@ const variants = {
   ghost: "bg-white border-line hover:bg-gray-50 text-ink",
 };
 
+// Amazon's buttons are full pills with a thin darker border and a soft shadow.
 export default function Button({ variant = "yellow", className = "", type = "button", ...rest }) {
   return (
     <button
       type={type}
-      className={`rounded-lg border px-4 py-2 text-sm shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${className}`}
+      className={`rounded-full border px-4 py-1.5 text-sm shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${className}`}
       {...rest}
     />
   );

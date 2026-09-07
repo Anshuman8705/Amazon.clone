@@ -9,7 +9,7 @@ Test details for forms: password `secret123`, any address, postal code `431601`,
 | 1 | Terminal | `npm run dev` | Two coloured logs: `api` says "API listening on http://localhost:4000", `web` prints the Vite address. |
 | 2 | Browser | Open http://localhost:4000/api/health | `{"ok":true,...}`. The API answers directly. |
 | 3 | Browser | Open http://localhost:4000/api/products?category=pets | JSON array of the three pet products with `rating`, `stock` and `discount` fields. |
-| 4 | Home | Load http://localhost:5173 | Hero, eight tiles with photos, deals row. Cart badge 0. Tiles briefly show grey placeholders while the API responds. |
+| 4 | Home | Load http://localhost:5173 | Three-slide hero with arrows, eight tiles with photos (one is "Sign in for the best experience" when signed out), then Deals, Best sellers and Under $25 rows. Cart badge 0. Tiles briefly show grey placeholders while the API responds. |
 | 5 | Terminal | Stop the API (Ctrl+C) and refresh the home page | A red box: "Cannot reach the server. Is the API running?" with a Try again button. Restart the API, click Try again, page recovers. |
 | 6 | Header | Search `carafe` | One result, heading `Results for "carafe"`. The network tab shows a request to `/api/products?q=carafe`. |
 | 7 | Header | Choose "Toys & Games" in the dropdown, search with an empty box | Only toys listed. |
@@ -44,7 +44,8 @@ Test details for forms: password `secret123`, any address, postal code `431601`,
 | 36 | Terminal | `npm test` | 4 files, 44 tests passing. |
 | 37 | Terminal | `npm run build` then `npm start`, open http://localhost:4000 | The whole site runs from one process. Deep links like `/category/pets` load on refresh. |
 | 38 | Any | Tab through a page | Visible focus ring on every control. |
-| 39 | Any | Phone width | Header collapses, grids stack, nothing overflows sideways. |
+| 39 | Any | Phone width | Header becomes the phone layout: logo row with Sign in and cart, full-width search, "Deliver to" strip, scrolling department chips. On a listing page a Filters button opens a bottom sheet. Nothing overflows sideways. |
+| 39a | Any | Click the ☰ All button (desktop department bar, or the phone header) | A side menu slides in with Shop by department, Programs & features, Help & settings. Escape or the X closes it. |
 | 40 | Header | Type `ket` in the search box | A suggestions dropdown appears under the box with the kettlebell and a price; clicking it opens the product. |
 | 41 | Product | Click the heart on a product card while signed out | Sent to sign in. Sign in, come back, click it: the heart turns red. |
 | 42 | Header | Account & Lists menu, then Your wishlist | The product is listed with Add to cart and Remove. |

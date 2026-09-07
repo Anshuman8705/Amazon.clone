@@ -20,7 +20,7 @@ export default function Footer() {
         Back to top
       </button>
       <div className="bg-slate px-6 py-10">
-        <div className="mx-auto grid max-w-screen-lg gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-screen-lg gap-8 grid-cols-2 lg:grid-cols-4">
           {columns.map((c) => (
             <div key={c.head}>
               <p className="mb-2 font-bold text-white">{c.head}</p>
@@ -37,9 +37,22 @@ export default function Footer() {
           ))}
         </div>
       </div>
+      <div className="border-t border-slate-hi bg-slate px-6 py-5">
+        <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-center gap-x-6 gap-y-3">
+          <img src={logo} alt="amazon" className="h-6 w-auto" />
+          <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">English</span>
+          <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">$ USD</span>
+          <span className="rounded border border-gray-500 px-3 py-1 text-xs text-gray-300">India</span>
+        </div>
+      </div>
       <div className="bg-navy px-6 py-6 text-center">
-        <img src={logo} alt="amazon" className="mx-auto h-6 w-auto" />
-        <p className="mt-3 text-xs text-gray-400">
+        <div className="mb-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-gray-300">
+          <Link to="/products" className="hover:underline">Conditions of use</Link>
+          <Link to="/products" className="hover:underline">Privacy notice</Link>
+          <Link to="/account" className="hover:underline">Your account</Link>
+          <a href="https://github.com/Anshuman8705/amazon-clone" className="hover:underline" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+        </div>
+        <p className="text-xs text-gray-400">
           Student project for a web technology course. Not affiliated with Amazon.com, Inc. No real orders are placed.
         </p>
         <p className="mt-1 text-xs text-gray-400">Designed and built by Anshuman Agrawal</p>

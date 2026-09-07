@@ -18,8 +18,8 @@ export default function FilterSidebar({ filters, onChange }) {
   };
 
   return (
-    <aside className="bg-white p-4" aria-label="Filters">
-      <h2 className="mb-2 font-bold text-ink">Department</h2>
+    <aside className="bg-white p-4 md:self-start" aria-label="Filters">
+      <h2 className="mb-2 text-base font-bold text-ink">Department</h2>
       <div className="mb-4 space-y-1">
         {CATEGORIES.map((c) => (
           <label key={c.slug} className="flex cursor-pointer items-center gap-2 text-sm text-ink">
