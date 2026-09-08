@@ -1,0 +1,284 @@
+TAP version 13
+# (node:571) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: INR formatter uses Indian grouping
+ok 1 - INR formatter uses Indian grouping
+  ---
+  duration_ms: 13.228479
+  type: 'test'
+  ...
+# Subtest: an explicit legacy currency is not relabelled as INR
+ok 2 - an explicit legacy currency is not relabelled as INR
+  ---
+  duration_ms: 1.045339
+  type: 'test'
+  ...
+# Subtest: invalid display amount produces a placeholder
+ok 3 - invalid display amount produces a placeholder
+  ---
+  duration_ms: 0.144657
+  type: 'test'
+  ...
+# Subtest: PIN validator accepts a six digit PIN
+ok 4 - PIN validator accepts a six digit PIN
+  ---
+  duration_ms: 0.144347
+  type: 'test'
+  ...
+# Subtest: PIN validator rejects five digits
+ok 5 - PIN validator rejects five digits
+  ---
+  duration_ms: 0.115864
+  type: 'test'
+  ...
+# Subtest: PIN validator rejects leading zero
+ok 6 - PIN validator rejects leading zero
+  ---
+  duration_ms: 0.082744
+  type: 'test'
+  ...
+# Subtest: PIN validator rejects mixed letters
+ok 7 - PIN validator rejects mixed letters
+  ---
+  duration_ms: 0.061182
+  type: 'test'
+  ...
+# Subtest: PIN validator trims outside spaces only
+ok 8 - PIN validator trims outside spaces only
+  ---
+  duration_ms: 0.061152
+  type: 'test'
+  ...
+# Subtest: state choices have no duplicates
+ok 9 - state choices have no duplicates
+  ---
+  duration_ms: 0.231778
+  type: 'test'
+  ...
+# Subtest: valid Indian demo checkout passes
+ok 10 - valid Indian demo checkout passes
+  ---
+  duration_ms: 0.850817
+  type: 'test'
+  ...
+# Subtest: missing checkout input returns errors without throwing
+ok 11 - missing checkout input returns errors without throwing
+  ---
+  duration_ms: 0.142253
+  type: 'test'
+  ...
+# Subtest: foreign or unrecognised state is rejected
+ok 12 - foreign or unrecognised state is rejected
+  ---
+  duration_ms: 0.18621
+  type: 'test'
+  ...
+# Subtest: real payment mode is rejected
+ok 13 - real payment mode is rejected
+  ---
+  duration_ms: 0.091798
+  type: 'test'
+  ...
+# Subtest: card details are rejected even when mode says demo
+ok 14 - card details are rejected even when mode says demo
+  ---
+  duration_ms: 0.072198
+  type: 'test'
+  ...
+# Subtest: security code is never accepted
+ok 15 - security code is never accepted
+  ---
+  duration_ms: 0.070185
+  type: 'test'
+  ...
+# Subtest: overlong address is rejected
+ok 16 - overlong address is rejected
+  ---
+  duration_ms: 0.072309
+  type: 'test'
+  ...
+# Subtest: bad email is rejected
+ok 17 - bad email is rejected
+  ---
+  duration_ms: 0.077676
+  type: 'test'
+  ...
+# Subtest: subtotals are calculated in paise
+ok 18 - subtotals are calculated in paise
+  ---
+  duration_ms: 0.201643
+  type: 'test'
+  ...
+# Subtest: demo total has no arbitrary extra eight percent
+ok 19 - demo total has no arbitrary extra eight percent
+  ---
+  duration_ms: 0.067421
+  type: 'test'
+  ...
+# Subtest: fractional quantities are rejected
+ok 20 - fractional quantities are rejected
+  ---
+  duration_ms: 0.185639
+  type: 'test'
+  ...
+# Subtest: quantity above maximum is rejected
+ok 21 - quantity above maximum is rejected
+  ---
+  duration_ms: 0.082254
+  type: 'test'
+  ...
+# Subtest: negative money is rejected
+ok 22 - negative money is rejected
+  ---
+  duration_ms: 0.06027
+  type: 'test'
+  ...
+# Subtest: nonfinite money is rejected
+ok 23 - nonfinite money is rejected
+  ---
+  duration_ms: 0.055273
+  type: 'test'
+  ...
+# Subtest: all twenty catalogue items have explicit sample rupee prices
+ok 24 - all twenty catalogue items have explicit sample rupee prices
+  ---
+  duration_ms: 0.055764
+  type: 'test'
+  ...
+# Subtest: sample prices are positive and discounts are consistent
+ok 25 - sample prices are positive and discounts are consistent
+  ---
+  duration_ms: 0.174332
+  type: 'test'
+  ...
+# Subtest: localisation does not mutate original catalogue input
+ok 26 - localisation does not mutate original catalogue input
+  ---
+  duration_ms: 0.128933
+  type: 'test'
+  ...
+# Subtest: unmapped products are not silently relabelled
+ok 27 - unmapped products are not silently relabelled
+  ---
+  duration_ms: 0.118859
+  type: 'test'
+  ...
+# Subtest: inaccurate dollar value is removed from the gift bundle title
+ok 28 - inaccurate dollar value is removed from the gift bundle title
+  ---
+  duration_ms: 0.078528
+  type: 'test'
+  ...
+# Subtest: new database is explicitly marked INR
+ok 29 - new database is explicitly marked INR
+  ---
+  duration_ms: 0.731798
+  type: 'test'
+  ...
+# Subtest: already marked INR database can reopen
+ok 30 - already marked INR database can reopen
+  ---
+  duration_ms: 0.293891
+  type: 'test'
+  ...
+# Subtest: legacy database is blocked and historical value stays unchanged
+ok 31 - legacy database is blocked and historical value stays unchanged
+  ---
+  duration_ms: 0.394372
+  type: 'test'
+  ...
+# Subtest: empty legacy schema is not repurposed silently
+ok 32 - empty legacy schema is not repurposed silently
+  ---
+  duration_ms: 0.237316
+  type: 'test'
+  ...
+# Subtest: USD marker is rejected without rewriting it
+ok 33 - USD marker is rejected without rewriting it
+  ---
+  duration_ms: 0.22647
+  type: 'test'
+  ...
+# Subtest: local development does not require cloud services
+ok 34 - local development does not require cloud services
+  ---
+  duration_ms: 0.102324
+  type: 'test'
+  ...
+# Subtest: Render deployment cannot silently assume persistent storage
+ok 35 - Render deployment cannot silently assume persistent storage
+  ---
+  duration_ms: 0.746149
+  type: 'test'
+  ...
+# Subtest: ephemeral demo requires explicit opt-in
+ok 36 - ephemeral demo requires explicit opt-in
+  ---
+  duration_ms: 0.088242
+  type: 'test'
+  ...
+# Subtest: confirmed order may ship or cancel
+ok 37 - confirmed order may ship or cancel
+  ---
+  duration_ms: 0.084236
+  type: 'test'
+  ...
+# Subtest: delivered orders cannot be rolled backwards or cancelled
+ok 38 - delivered orders cannot be rolled backwards or cancelled
+  ---
+  duration_ms: 0.054011
+  type: 'test'
+  ...
+# Subtest: cancelled order cannot reopen
+ok 39 - cancelled order cannot reopen
+  ---
+  duration_ms: 0.042964
+  type: 'test'
+  ...
+# Subtest: same valid status is an idempotent status update
+ok 40 - same valid status is an idempotent status update
+  ---
+  duration_ms: 0.042885
+  type: 'test'
+  ...
+# Subtest: unknown status is invalid
+ok 41 - unknown status is invalid
+  ---
+  duration_ms: 0.039309
+  type: 'test'
+  ...
+# Subtest: order identifiers use UUIDs
+ok 42 - order identifiers use UUIDs
+  ---
+  duration_ms: 1.630136
+  type: 'test'
+  ...
+# Subtest: sample date is based on the Indian calendar day
+ok 43 - sample date is based on the Indian calendar day
+  ---
+  duration_ms: 3.875305
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 100.249456
+test_ambiguous_anchor_refuses (test_updater.UpdaterTests.test_ambiguous_anchor_refuses) ... ok
+test_conflicting_source_leaves_disk_unchanged (test_updater.UpdaterTests.test_conflicting_source_leaves_disk_unchanged) ... ok
+test_missing_anchor_refuses (test_updater.UpdaterTests.test_missing_anchor_refuses) ... ok
+test_new_file_collision_refuses (test_updater.UpdaterTests.test_new_file_collision_refuses) ... ok
+test_plan_only_never_writes (test_updater.UpdaterTests.test_plan_only_never_writes) ... ok
+test_section_keeps_boundary_and_tail (test_updater.UpdaterTests.test_section_keeps_boundary_and_tail) ... ok
+test_unique_anchor_changes_once (test_updater.UpdaterTests.test_unique_anchor_changes_once) ... ok
+test_windows_line_endings_match_git_source (test_updater.UpdaterTests.test_windows_line_endings_match_git_source) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK
+6 JavaScript/JSX files parsed; 0 syntax errors. This is NOT a React/Vite build or browser test.

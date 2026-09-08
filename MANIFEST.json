@@ -1,0 +1,66 @@
+{
+  "package": "NimbusMart India localisation review update",
+  "kind": "changes-only",
+  "base_repository": "Anshuman8705/Amazon.clone",
+  "base_commit": "feaa8bee544ec952849cccbacda19f0c85669f8f",
+  "production_ready": false,
+  "cloud_database_migration_included": false,
+  "files": {
+    "README.md": {
+      "bytes": 6802,
+      "sha256": "41737ca1cd8f4c24d262e18e78d28820ad52ca8f32b5daced172dd4ce694b9fd"
+    },
+    "TEST_RESULTS.txt": {
+      "bytes": 7890,
+      "sha256": "ab915683b757e15e9fbfd32a9c6a8eaf1eda18e2402cff95b9db145ca4012c81"
+    },
+    "VALIDATION.md": {
+      "bytes": 1342,
+      "sha256": "97edf928038862b35d7ab2d544e896caeaa15e65a0e27160a1d914ff258bca05"
+    },
+    "apply_update.py": {
+      "bytes": 5282,
+      "sha256": "0bfb3b7cf3b7213c2a3ae0115c857cb9b7d667b7dfca4df3119bb76c41f7a508"
+    },
+    "files/server/indiaGuard.js": {
+      "bytes": 1722,
+      "sha256": "cfe7e3ae3c453e7dc7a5db502cdea713aaa62d9611906a8414ea0842c69c8be0"
+    },
+    "files/src/components/Price.jsx": {
+      "bytes": 465,
+      "sha256": "1a9fb56da2db1373fc7ed656c7c13b552c75196cd09548957a780071071c508a"
+    },
+    "files/src/pages/CheckoutPage.jsx": {
+      "bytes": 9550,
+      "sha256": "bb67c4c0b992e2152119a19ba8dbb833fff3ca8422be6d4e7df5f3ae6dc93add"
+    },
+    "files/src/pages/HomePage.jsx": {
+      "bytes": 3928,
+      "sha256": "0aaf408f7b05f19e352d215736e486a67256219f6fab53c65cec8b25867e0e21"
+    },
+    "files/src/utils/format.js": {
+      "bytes": 1303,
+      "sha256": "7b82d97eba5b7cb4ec54d66cd316fdfa875295f2ef38e1a723df0bb842c3ba9f"
+    },
+    "files/src/utils/india.js": {
+      "bytes": 4192,
+      "sha256": "40d6400ec1d0c4808d6cf57e7cfa8b72fa90a7fa0befc41af7c2688284d4b416"
+    },
+    "package.json": {
+      "bytes": 128,
+      "sha256": "dfc388a7eea03ba680f70db73f29a4de695c4fa2480a5ba6a1212f255c1dead5"
+    },
+    "patches.py": {
+      "bytes": 12947,
+      "sha256": "dc37bea274ab82cf199c4d23b5a2e9f4eff4d069cf772ca953b13bb95880f659"
+    },
+    "tests/india.test.mjs": {
+      "bytes": 7130,
+      "sha256": "964972bfa60c71535a2be6e167fc367bd913ba9a919fb0b12004be09b94867c6"
+    },
+    "tests/test_updater.py": {
+      "bytes": 3430,
+      "sha256": "df084ef6f70341c698e4a9993d4349fa10d8ccdf6960808512178336cba37ecc"
+    }
+  }
+}
